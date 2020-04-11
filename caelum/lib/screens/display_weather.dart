@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class DisplayWeather extends Statef;ulWidget {
+class DisplayWeather extends StatefulWidget {
   DisplayWeather(this.displayWeather);
 
   final displayWeather;
