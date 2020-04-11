@@ -1,0 +1,10 @@
+import 'package:flutter/material.dart';
+
+class DisplayWeather extends Statef;ulWidget {
+  DisplayWeather(this.displayWeather);
+
+  final displayWeather;
+
+  @override
+  _DisplayWeatherState createState() => _DisplayWeatherState();
+}

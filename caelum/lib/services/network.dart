@@ -1,18 +1,18 @@
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-const weatherAPIURL = '';
-const apiKey = '';
+class NetworkHelper {
+  NetworkHelper(this.url);
 
-class WeatherData {
-  Future getCoinData(String currency) async {
-    //TODO 4: Update the URL to use the selectedCurrency input.
-    String requestURL = '$weatherAPIURL/BTC/$currency?apikey=$apiKey';
-    http.Response response = await http.get(requestURL);
+  final String url;
+
+  Future getData() async {
+    http.Response response = await http.get(url);
+
     if (response.statusCode == 200) {
-      var decodedData = jsonDecode(response.body);
-      var lastPrice = decodedData['rate'];
-      return lastPrice;
+      String data = response.body;
+      print(data);
+      return jsonDecode(data);
     } else {
       print(response.statusCode);
       throw 'Problem with the get request';
