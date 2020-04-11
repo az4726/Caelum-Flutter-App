@@ -22,7 +22,8 @@ class _DisplayWeatherState extends State<DisplayWeather> {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
-        systemNavigationBarColor: Colors.transparent,
+        systemNavigationBarColor: Color(
+            0xFFFDA53D), //TODO: Change this to match Container's background
       ),
     );
   }
@@ -34,6 +35,9 @@ class _DisplayWeatherState extends State<DisplayWeather> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration: new BoxDecoration(
+            color: Color(
+                0xFFFDA53D)), //TODO: Dynamic background colour based on current weather
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -47,7 +51,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                       // TODO: Change to location variable
                       'Birmingham',
                       style: TextStyle(
-                        fontSize: 38,
+                        fontSize: 42,
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
                       ),
@@ -55,7 +59,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                     Text(
                       formattedDate,
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 20,
                         color: Color(0xAAFFFFFF),
                       ),
                     ),
@@ -83,7 +87,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                     Icon(
                       // TODO: Add functionality to have dynamic icon
                       OMIcons.cloudUpload,
-                      size: 36,
+                      size: 42,
                     ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -130,7 +134,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         Text(
                           'Fri',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
                           ),
                         ),
                       ],
@@ -149,7 +153,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         Text(
                           '17',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
                           ),
                         ),
                       ],
@@ -160,7 +164,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         Text(
                           '9',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
                             color: Color(0xAAFFFFFF),
                           ),
                         )
@@ -176,7 +180,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         Text(
                           'Fri',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
                           ),
                         ),
                       ],
@@ -195,7 +199,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         Text(
                           '17',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
                           ),
                         ),
                       ],
@@ -206,7 +210,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         Text(
                           '9',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
                             color: Color(0xAAFFFFFF),
                           ),
                         )
@@ -222,7 +226,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         Text(
                           'Fri',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
                           ),
                         ),
                       ],
@@ -241,7 +245,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         Text(
                           '17',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
                           ),
                         ),
                       ],
@@ -252,7 +256,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         Text(
                           '9',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
                             color: Color(0xAAFFFFFF),
                           ),
                         )
@@ -268,7 +272,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         Text(
                           'Fri',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
                           ),
                         ),
                       ],
@@ -287,7 +291,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         Text(
                           '17',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
                           ),
                         ),
                       ],
@@ -298,7 +302,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         Text(
                           '9',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
                             color: Color(0xAAFFFFFF),
                           ),
                         )
@@ -314,7 +318,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         Text(
                           'Fri',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
                           ),
                         ),
                       ],
@@ -333,7 +337,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         Text(
                           '17',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
                           ),
                         ),
                       ],
@@ -344,7 +348,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         Text(
                           '9',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 22,
                             color: Color(0xAAFFFFFF),
                           ),
                         )
@@ -354,7 +358,9 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                 ),
               ],
             ), //5 days showing icons, highs and lows for each day
-            Row(), //'Search for a location' button
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+            ), //'Search for a location' button
           ],
         ),
       ),
