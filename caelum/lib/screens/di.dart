@@ -16,7 +16,6 @@ class DisplayWeather extends StatefulWidget {
 class _DisplayWeatherState extends State<DisplayWeather> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.renderView.automaticSystemUiAdjustment =
         false; //<--
@@ -45,6 +44,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
+                      // TODO: Change to location variable
                       'Birmingham',
                       style: TextStyle(
                         fontSize: 38,
@@ -56,6 +56,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                       formattedDate,
                       style: TextStyle(
                         fontSize: 18,
+                        color: Color(0xAAFFFFFF),
                       ),
                     ),
                   ],
@@ -66,6 +67,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                       icon: Icon(OMIcons.myLocation),
                       tooltip: 'Get Your Location',
                       onPressed: () {
+                        // TODO: Update to get location info
                         setState(() {});
                       },
                     ),
@@ -73,7 +75,50 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                 ), //'Locate me' button
               ],
             ), //City name, Long date, 'Locate me' button
-            Row(), //Weather icon, temperature, short description
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Icon(
+                      // TODO: Add functionality to have dynamic icon
+                      OMIcons.cloudUpload,
+                      size: 36,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          // TODO: Update to a variable
+                          '13',
+                          style: TextStyle(
+                            fontSize: 136,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          '°',
+                          style: TextStyle(
+                            fontSize: 108,
+                            fontWeight: FontWeight.w200,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      // TODO: Update to get info from API
+                      'Rather Cloudy',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Color(0xAAFFFFFF),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ), //Weather icon, temperature, short description
             Row(), //5 days showing icons, highs and lows for each day
             Row(), //'Search for a location' button
           ],
