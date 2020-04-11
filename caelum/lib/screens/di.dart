@@ -119,7 +119,241 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                 )
               ],
             ), //Weather icon, temperature, short description
-            Row(), //5 days showing icons, highs and lows for each day
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        // TODO: Replace with day from API (Will need to convert the given format into a day)
+                        Text(
+                          'Fri',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ), //Day
+                    Row(
+                      children: <Widget>[
+                        //TODO: Replace with the matching icon for the forecasted weather
+                        Icon(
+                          OMIcons.cloud,
+                        ),
+                      ],
+                    ), //Icon
+                    Row(
+                      children: <Widget>[
+                        //TODO: Replace with data from API
+                        Text(
+                          '17',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ), //High temperature
+                    Row(
+                      children: <Widget>[
+                        //TODO: Replace with data from API
+                        Text(
+                          '9',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Color(0xAAFFFFFF),
+                          ),
+                        )
+                      ],
+                    ), //Low temperature
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        // TODO: Replace with day from API (Will need to convert the given format into a day)
+                        Text(
+                          'Fri',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ), //Day
+                    Row(
+                      children: <Widget>[
+                        //TODO: Replace with the matching icon for the forecasted weather
+                        Icon(
+                          OMIcons.cloud,
+                        ),
+                      ],
+                    ), //Icon
+                    Row(
+                      children: <Widget>[
+                        //TODO: Replace with data from API
+                        Text(
+                          '17',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ), //High temperature
+                    Row(
+                      children: <Widget>[
+                        //TODO: Replace with data from API
+                        Text(
+                          '9',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Color(0xAAFFFFFF),
+                          ),
+                        )
+                      ],
+                    ), //Low temperature
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        // TODO: Replace with day from API (Will need to convert the given format into a day)
+                        Text(
+                          'Fri',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ), //Day
+                    Row(
+                      children: <Widget>[
+                        //TODO: Replace with the matching icon for the forecasted weather
+                        Icon(
+                          OMIcons.cloud,
+                        ),
+                      ],
+                    ), //Icon
+                    Row(
+                      children: <Widget>[
+                        //TODO: Replace with data from API
+                        Text(
+                          '17',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ), //High temperature
+                    Row(
+                      children: <Widget>[
+                        //TODO: Replace with data from API
+                        Text(
+                          '9',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Color(0xAAFFFFFF),
+                          ),
+                        )
+                      ],
+                    ), //Low temperature
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        // TODO: Replace with day from API (Will need to convert the given format into a day)
+                        Text(
+                          'Fri',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ), //Day
+                    Row(
+                      children: <Widget>[
+                        //TODO: Replace with the matching icon for the forecasted weather
+                        Icon(
+                          OMIcons.cloud,
+                        ),
+                      ],
+                    ), //Icon
+                    Row(
+                      children: <Widget>[
+                        //TODO: Replace with data from API
+                        Text(
+                          '17',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ), //High temperature
+                    Row(
+                      children: <Widget>[
+                        //TODO: Replace with data from API
+                        Text(
+                          '9',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Color(0xAAFFFFFF),
+                          ),
+                        )
+                      ],
+                    ), //Low temperature
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        // TODO: Replace with day from API (Will need to convert the given format into a day)
+                        Text(
+                          'Fri',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ), //Day
+                    Row(
+                      children: <Widget>[
+                        //TODO: Replace with the matching icon for the forecasted weather
+                        Icon(
+                          OMIcons.cloud,
+                        ),
+                      ],
+                    ), //Icon
+                    Row(
+                      children: <Widget>[
+                        //TODO: Replace with data from API
+                        Text(
+                          '17',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ), //High temperature
+                    Row(
+                      children: <Widget>[
+                        //TODO: Replace with data from API
+                        Text(
+                          '9',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Color(0xAAFFFFFF),
+                          ),
+                        )
+                      ],
+                    ), //Low temperature
+                  ],
+                ),
+              ],
+            ), //5 days showing icons, highs and lows for each day
             Row(), //'Search for a location' button
           ],
         ),
