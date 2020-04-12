@@ -1,3 +1,4 @@
+import 'package:caelum/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -35,11 +36,19 @@ class _DisplayWeatherState extends State<DisplayWeather> {
     setState(() {
       if (weatherData != null) {
         cityName = weatherData['name'];
-//        weatherHeader = weatherData['weather'][0]['main'];
+        //--------------------------------//
 //        var condition = weatherData['weather'][0]['id'];
-        double temp = weatherData['main']['temp'];
-        mainTemperature = temp.toInt().toString();
 //        weatherIcon = weather.getWeatherIcon(condition);
+        double mainTempDouble = weatherData['main']['temp'];
+        mainTemperature = (mainTempDouble.toInt()).toString();
+        weatherDescription = weatherData['weather'][0]['main'];
+        //--------------------------------//
+//        var condition = weatherData['weather'][0]['id'];
+//        weatherIcon = weather.getWeatherIcon(condition);
+        double mainTempHighDouble = weatherData['main']['temp_max'];
+        todayHighTemperature = (mainTempHighDouble.toInt()).toString();
+        double mainTempLowDouble = weatherData['main']['temp_min'];
+        todayLowTemperature = (mainTempLowDouble.toInt()).toString();
       } else {
         mainTemperature = 0.toString();
         cityName = 'ERROR';
@@ -59,14 +68,16 @@ class _DisplayWeatherState extends State<DisplayWeather> {
 
   static var date = new DateTime.now();
 
-  String cityName = 'Birmingham';
+  String cityName;
   String formattedDate = formatDate(date, [DD, ', ', d, ' ', MM, ' ', yyyy]);
   //--------------------------//
   Icon weatherIcon = Icon(OMIcons.brightness5);
-  String mainTemperature = '12';
+  String mainTemperature;
   String weatherDescription = 'Rather Cloudy';
   //--------------------------//
   String todayDay = formatDate(date, [D]);
+  String todayHighTemperature;
+  String todayLowTemperature;
   //--------------------------//
   String dayTwo = formatDate(date, [D]);
   Icon weatherIconTwo = Icon(OMIcons.cloud);
@@ -134,7 +145,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                 children: <Widget>[
                   Column(
                     children: <Widget>[
-                      weatherIcon,
                       Icon(
                         // TODO: Add functionality to have dynamic icon
                         OMIcons.brightness5,
@@ -145,7 +155,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         children: <Widget>[
                           Text(
                             // TODO: Update to a variable
-                            '13',
+                            mainTemperature,
                             style: TextStyle(
                               fontSize: 136,
                               fontWeight: FontWeight.bold,
@@ -164,7 +174,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                       ),
                       Text(
                         // TODO: Update to get info from API
-                        'Rather Cloudy',
+                        weatherDescription,
                         style: TextStyle(
                           fontSize: 18,
                           color: Color(0xAAFFFFFF),
@@ -188,7 +198,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                           children: <Widget>[
                             // TODO: Replace with day from API (Will need to convert the given format into a day)
                             Text(
-                              'Fri', //TODO: Today's date
+                              todayDay, //TODO: Today's date
                               style: TextStyle(
                                 fontSize:
                                     22, //TODO: The other columns need to have a thinner font weight
@@ -214,7 +224,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                           children: <Widget>[
                             //TODO: Replace with data from API
                             Text(
-                              '17',
+                              todayHighTemperature,
                               style: TextStyle(
                                 fontSize: 22,
                               ),
@@ -228,7 +238,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                           children: <Widget>[
                             //TODO: Replace with data from API
                             Text(
-                              '9',
+                              todayLowTemperature,
                               style: TextStyle(
                                 fontSize: 22,
                                 color: Color(0xAAFFFFFF),

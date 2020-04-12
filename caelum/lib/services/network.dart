@@ -7,20 +7,22 @@ class Network {
   final String url;
 
   Future getData() async {
-    http.Response response = await http.get(url);
+    String data =
+        '{"coord":{"lon":139.01,"lat":35.02},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"base":"stations","main":{"temp":285.514,"pressure":1013.75,"humidity":100,"temp_min":285.514,"temp_max":285.514,"sea_level":1023.22,"grnd_level":1013.75},"wind":{"speed":5.52,"deg":311},"clouds":{"all":0},"dt":1485792967,"sys":{"message":0.0025,"country":"JP","sunrise":1485726240,"sunset":1485763863},"id":1907296,"name":"Tawarano","cod":200}';
+    print(data);
 
-    if (response.statusCode == 200) {
+    return jsonDecode(data);
+
+//    http.Response response = await http.get(url);
+//
+//    if (response.statusCode == 200) {
 //      String data = response.body;
 //      print(data);
-
-      String data =
-          '{coord: {lon: -1.9, lat: 52.51}, weather: [{id: 801, main: Clouds, description: few clouds, icon: 02d}], base: stations, main: {temp: 18.29, feels_like: 16.63, temp_min: 15.56, temp_max: 20, pressure: 1013, humidity: 55}, visibility: 10000, wind: {speed: 2.1}, clouds: {all: 20}, dt: 1586690380, sys: {type: 1, id: 1375, country: GB, sunrise: 1586668533, sunset: 1586718035}, timezone: 3600, id: 2646814, name: Hockley, cod: 200}';
-      print(data);
-
-      return jsonDecode(data);
-    } else {
-      print(response.statusCode);
-      throw 'Problem with the get request';
-    }
+//
+//      return jsonDecode(data);
+//    } else {
+//      print(response.statusCode);
+//      throw 'Problem with the get request';
+//    }
   }
 }
