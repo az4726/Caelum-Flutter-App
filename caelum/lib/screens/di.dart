@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:date_format/date_format.dart';
 import 'package:outline_material_icons/outline_material_icons.dart';
 import 'package:caelum/services/weather.dart';
+import 'package:caelum/constants.dart';
 
 class DisplayWeather extends StatefulWidget {
   DisplayWeather(this.displayWeather);
@@ -46,9 +47,9 @@ class _DisplayWeatherState extends State<DisplayWeather> {
 //        var condition = weatherData['weather'][0]['id'];
 //        weatherIcon = weather.getWeatherIcon(condition);
         tempDouble = weatherData['list'][0]['main']['temp_max'];
-        todayHighTemperature = (tempDouble.toInt()).toString();
+        highTemperatureOne = (tempDouble.toInt()).toString();
         tempDouble = weatherData['list'][0]['main']['temp_min'];
-        todayLowTemperature = (tempDouble.toInt()).toString();
+        lowTemperatureOne = (tempDouble.toInt()).toString();
 
         //---------------DAY 2-----------------//
 //      var condition = weatherData['weather'][0]['id'];
@@ -99,13 +100,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
     });
   }
 
-  Color warm = Color(0xFFFDA53D);
-  Color cool = Color(0xFF38AECC);
-  Color neutral = Color(0xFFA5B1A7);
-  Color rain = Color(0xFF455561);
-  Color storm = Color(0xFF282937);
-  Color semiTransparent = Color(0xAAFFFFFF);
-
   static var date = new DateTime.now();
 
   String cityName;
@@ -115,9 +109,9 @@ class _DisplayWeatherState extends State<DisplayWeather> {
   String mainTemperature;
   String weatherDescription;
   //--------------------------//
-  String todayDay = formatDate(date, [D]);
-  String todayHighTemperature;
-  String todayLowTemperature;
+  String dayOne = formatDate(date, [D]);
+  String highTemperatureOne;
+  String lowTemperatureOne;
   //--------------------------//
   String dayTwo;
   Icon weatherIconTwo = Icon(OMIcons.cloud);
@@ -242,282 +236,26 @@ class _DisplayWeatherState extends State<DisplayWeather> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              todayDay,
-                              style: TextStyle(
-                                fontSize:
-                                    22, //TODO: The other columns need to have a thinner font weight
-                              ),
-                            ),
-                          ],
-                        ),
-                      ), //Day
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            //TODO: Replace with the matching icon for the forecasted weather
-                            Icon(
-                              OMIcons.cloud,
-                            ),
-                          ],
-                        ),
-                      ), //Icon
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              todayHighTemperature,
-                              style: TextStyle(
-                                fontSize: 22,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ), //High temperature
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              todayLowTemperature,
-                              style: TextStyle(
-                                fontSize: 22,
-                                color: Color(0xAAFFFFFF),
-                              ),
-                            )
-                          ],
-                        ),
-                      ), //Low temperature
-                    ],
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              dayTwo,
-                              style: TextStyle(
-                                fontSize: 22,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ), //Day
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            //TODO: Replace with the matching icon for the forecasted weather
-                            Icon(
-                              OMIcons.cloud,
-                            ),
-                          ],
-                        ),
-                      ), //Icon
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              highTemperatureTwo,
-                              style: TextStyle(
-                                fontSize: 22,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ), //High temperature
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              lowTemperatureTwo,
-                              style: TextStyle(
-                                fontSize: 22,
-                                color: Color(0xAAFFFFFF),
-                              ),
-                            )
-                          ],
-                        ),
-                      ), //Low temperature
-                    ],
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              dayThree,
-                              style: TextStyle(
-                                fontSize: 22,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ), //Day
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            //TODO: Replace with the matching icon for the forecasted weather
-                            Icon(
-                              OMIcons.cloud,
-                            ),
-                          ],
-                        ),
-                      ), //Icon
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              highTemperatureThree,
-                              style: TextStyle(
-                                fontSize: 22,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ), //High temperature
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              lowTemperatureThree,
-                              style: TextStyle(
-                                fontSize: 22,
-                                color: Color(0xAAFFFFFF),
-                              ),
-                            )
-                          ],
-                        ),
-                      ), //Low temperature
-                    ],
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              dayFour,
-                              style: TextStyle(
-                                fontSize: 22,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ), //Day
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            //TODO: Replace with the matching icon for the forecasted weather
-                            Icon(
-                              OMIcons.cloud,
-                            ),
-                          ],
-                        ),
-                      ), //Icon
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              highTemperatureFour,
-                              style: TextStyle(
-                                fontSize: 22,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ), //High temperature
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              lowTemperatureFour,
-                              style: TextStyle(
-                                fontSize: 22,
-                                color: Color(0xAAFFFFFF),
-                              ),
-                            )
-                          ],
-                        ),
-                      ), //Low temperature
-                    ],
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              dayFive,
-                              style: TextStyle(
-                                fontSize: 22,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ), //Day
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            //TODO: Replace with the matching icon for the forecasted weather
-                            Icon(
-                              OMIcons.cloud,
-                            ),
-                          ],
-                        ),
-                      ), //Icon
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              highTemperatureFive,
-                              style: TextStyle(
-                                fontSize: 22,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ), //High temperature
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              lowTemperatureFive,
-                              style: TextStyle(
-                                fontSize: 22,
-                                color: Color(0xAAFFFFFF),
-                              ),
-                            )
-                          ],
-                        ),
-                      ), //Low temperature
-                    ],
-                  ),
+                  ForecastColumn(
+                      day: dayOne,
+                      highTemperature: highTemperatureOne,
+                      lowTemperature: lowTemperatureOne),
+                  ForecastColumn(
+                      day: dayTwo,
+                      highTemperature: highTemperatureTwo,
+                      lowTemperature: lowTemperatureTwo),
+                  ForecastColumn(
+                      day: dayThree,
+                      highTemperature: highTemperatureThree,
+                      lowTemperature: lowTemperatureThree),
+                  ForecastColumn(
+                      day: dayFour,
+                      highTemperature: highTemperatureFour,
+                      lowTemperature: lowTemperatureFour),
+                  ForecastColumn(
+                      day: dayFive,
+                      highTemperature: highTemperatureFive,
+                      lowTemperature: lowTemperatureFive),
                 ],
               ),
             ), //5 days showing icons, highs and lows for each day
