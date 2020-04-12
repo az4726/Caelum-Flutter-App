@@ -3,6 +3,8 @@ import 'package:caelum/services/network.dart';
 
 const apiKey = '';
 const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather';
+const openWeatherMapForecastURL =
+    'https://api.openweathermap.org/data/2.5/forecast';
 
 class WeatherModel {
   Future<dynamic> getCityWeather(String cityName) async {
@@ -19,6 +21,17 @@ class WeatherModel {
 
     Network networkHelper = Network(
         '$openWeatherMapURL?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric');
+
+    var weatherData = await networkHelper.getData();
+    return weatherData;
+  }
+
+  Future<dynamic> getLocationWeatherForecast() async {
+    Location location = Location();
+    await location.getCurrentLocation();
+
+    Network networkHelper = Network(
+        '$openWeatherMapForecastURL?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric');
 
     var weatherData = await networkHelper.getData();
     return weatherData;

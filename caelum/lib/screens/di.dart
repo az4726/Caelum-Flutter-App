@@ -37,18 +37,18 @@ class _DisplayWeatherState extends State<DisplayWeather> {
       if (weatherData != null) {
         cityName = weatherData['name'];
         //--------------------------------//
-//        var condition = weatherData['weather'][0]['id'];
+//        var condition = weatherData['weather'][0]['id'];  //TODO: Add functionality for correct weather icons
 //        weatherIcon = weather.getWeatherIcon(condition);
-        double mainTempDouble = weatherData['main']['temp'];
-        mainTemperature = (mainTempDouble.toInt()).toString();
+        double tempDouble = weatherData['main']['temp'];
+        mainTemperature = (tempDouble.toInt()).toString();
         weatherDescription = weatherData['weather'][0]['main'];
         //--------------------------------//
 //        var condition = weatherData['weather'][0]['id'];
 //        weatherIcon = weather.getWeatherIcon(condition);
-        double mainTempHighDouble = weatherData['main']['temp_max'];
-        todayHighTemperature = (mainTempHighDouble.toInt()).toString();
-        double mainTempLowDouble = weatherData['main']['temp_min'];
-        todayLowTemperature = (mainTempLowDouble.toInt()).toString();
+        tempDouble = weatherData['main']['temp_max'];
+        todayHighTemperature = (tempDouble.toInt()).toString();
+        tempDouble = weatherData['main']['temp_min'];
+        todayLowTemperature = (tempDouble.toInt()).toString();
       } else {
         mainTemperature = 0.toString();
         cityName = 'ERROR';

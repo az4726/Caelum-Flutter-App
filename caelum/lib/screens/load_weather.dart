@@ -18,7 +18,7 @@ class _LoadWeatherState extends State<LoadWeather> {
 
   void getLocationData() async {
     WeatherModel weather = WeatherModel();
-    var weatherData = await weather.getLocationWeather();
+    var weatherData = await weather.getLocationWeatherForecast();
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return DisplayWeather(weatherData);
     }));
