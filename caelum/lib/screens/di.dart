@@ -35,20 +35,60 @@ class _DisplayWeatherState extends State<DisplayWeather> {
   void updateUI(dynamic weatherData) {
     setState(() {
       if (weatherData != null) {
-        cityName = weatherData['name'];
+        cityName = weatherData['city']['name'];
         //--------------------------------//
 //        var condition = weatherData['weather'][0]['id'];  //TODO: Add functionality for correct weather icons
 //        weatherIcon = weather.getWeatherIcon(condition);
-        double tempDouble = weatherData['main']['temp'];
+        double tempDouble = weatherData['list'][0]['main']['temp'];
         mainTemperature = (tempDouble.toInt()).toString();
-        weatherDescription = weatherData['weather'][0]['main'];
-        //--------------------------------//
+        weatherDescription = weatherData['list'][0]['weather'][0]['main'];
+        //----------------CURRENT DAY----------------//
 //        var condition = weatherData['weather'][0]['id'];
 //        weatherIcon = weather.getWeatherIcon(condition);
-        tempDouble = weatherData['main']['temp_max'];
+        tempDouble = weatherData['list'][0]['main']['temp_max'];
         todayHighTemperature = (tempDouble.toInt()).toString();
-        tempDouble = weatherData['main']['temp_min'];
+        tempDouble = weatherData['list'][0]['main']['temp_min'];
         todayLowTemperature = (tempDouble.toInt()).toString();
+
+        //---------------DAY 2-----------------//
+//      var condition = weatherData['weather'][0]['id'];
+//      weatherIcon = weather.getWeatherIcon(condition);
+        dayTwo =
+            formatDate(DateTime.parse(weatherData['list'][8]['dt_txt']), [D]);
+        tempDouble = weatherData['list'][8]['main']['temp_max'];
+        highTemperatureTwo = (tempDouble.toInt()).toString();
+        tempDouble = weatherData['list'][8]['main']['temp_min'];
+        lowTemperatureTwo = (tempDouble.toInt()).toString();
+
+        //---------------DAY 3-----------------//
+//      var condition = weatherData['weather'][0]['id'];
+//      weatherIcon = weather.getWeatherIcon(condition);
+        dayThree =
+            formatDate(DateTime.parse(weatherData['list'][16]['dt_txt']), [D]);
+        tempDouble = weatherData['list'][16]['main']['temp_max'];
+        highTemperatureThree = (tempDouble.toInt()).toString();
+        tempDouble = weatherData['list'][16]['main']['temp_min'];
+        lowTemperatureThree = (tempDouble.toInt()).toString();
+
+        //---------------DAY 4-----------------//
+//      var condition = weatherData['weather'][0]['id'];
+//      weatherIcon = weather.getWeatherIcon(condition);
+        dayFour =
+            formatDate(DateTime.parse(weatherData['list'][24]['dt_txt']), [D]);
+        tempDouble = weatherData['list'][24]['main']['temp_max'];
+        highTemperatureFour = (tempDouble.toInt()).toString();
+        tempDouble = weatherData['list'][24]['main']['temp_min'];
+        lowTemperatureFour = (tempDouble.toInt()).toString();
+
+        //---------------DAY 5-----------------//
+//      var condition = weatherData['weather'][0]['id'];
+//      weatherIcon = weather.getWeatherIcon(condition);
+        dayFive =
+            formatDate(DateTime.parse(weatherData['list'][32]['dt_txt']), [D]);
+        tempDouble = weatherData['list'][32]['main']['temp_max'];
+        highTemperatureFive = (tempDouble.toInt()).toString();
+        tempDouble = weatherData['list'][32]['main']['temp_min'];
+        lowTemperatureFive = (tempDouble.toInt()).toString();
       } else {
         mainTemperature = 0.toString();
         cityName = 'ERROR';
@@ -73,16 +113,31 @@ class _DisplayWeatherState extends State<DisplayWeather> {
   //--------------------------//
   Icon weatherIcon = Icon(OMIcons.brightness5);
   String mainTemperature;
-  String weatherDescription = 'Rather Cloudy';
+  String weatherDescription;
   //--------------------------//
   String todayDay = formatDate(date, [D]);
   String todayHighTemperature;
   String todayLowTemperature;
   //--------------------------//
-  String dayTwo = formatDate(date, [D]);
+  String dayTwo;
   Icon weatherIconTwo = Icon(OMIcons.cloud);
-  String highTemperatureTwo = '19';
-  String lowTemperatureTwo = '8';
+  String highTemperatureTwo;
+  String lowTemperatureTwo;
+  //--------------------------//
+  String dayThree;
+  Icon weatherIconThree = Icon(OMIcons.cloud);
+  String highTemperatureThree;
+  String lowTemperatureThree;
+  //--------------------------//
+  String dayFour;
+  Icon weatherIconFour = Icon(OMIcons.cloud);
+  String highTemperatureFour;
+  String lowTemperatureFour;
+  //--------------------------//
+  String dayFive;
+  Icon weatherIconFive = Icon(OMIcons.cloud);
+  String highTemperatureFive;
+  String lowTemperatureFive;
 
   @override
   Widget build(BuildContext context) {
@@ -257,7 +312,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                           children: <Widget>[
                             // TODO: Replace with day from API (Will need to convert the given format into a day)
                             Text(
-                              'Fri',
+                              dayTwo,
                               style: TextStyle(
                                 fontSize: 22,
                               ),
@@ -282,7 +337,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                           children: <Widget>[
                             //TODO: Replace with data from API
                             Text(
-                              '17',
+                              highTemperatureTwo,
                               style: TextStyle(
                                 fontSize: 22,
                               ),
@@ -296,7 +351,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                           children: <Widget>[
                             //TODO: Replace with data from API
                             Text(
-                              '9',
+                              lowTemperatureTwo,
                               style: TextStyle(
                                 fontSize: 22,
                                 color: Color(0xAAFFFFFF),
@@ -315,7 +370,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                           children: <Widget>[
                             // TODO: Replace with day from API (Will need to convert the given format into a day)
                             Text(
-                              'Fri',
+                              dayThree,
                               style: TextStyle(
                                 fontSize: 22,
                               ),
@@ -340,7 +395,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                           children: <Widget>[
                             //TODO: Replace with data from API
                             Text(
-                              '17',
+                              highTemperatureThree,
                               style: TextStyle(
                                 fontSize: 22,
                               ),
@@ -354,7 +409,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                           children: <Widget>[
                             //TODO: Replace with data from API
                             Text(
-                              '9',
+                              lowTemperatureThree,
                               style: TextStyle(
                                 fontSize: 22,
                                 color: Color(0xAAFFFFFF),
@@ -373,7 +428,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                           children: <Widget>[
                             // TODO: Replace with day from API (Will need to convert the given format into a day)
                             Text(
-                              'Fri',
+                              dayFour,
                               style: TextStyle(
                                 fontSize: 22,
                               ),
@@ -398,7 +453,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                           children: <Widget>[
                             //TODO: Replace with data from API
                             Text(
-                              '17',
+                              highTemperatureFour,
                               style: TextStyle(
                                 fontSize: 22,
                               ),
@@ -412,7 +467,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                           children: <Widget>[
                             //TODO: Replace with data from API
                             Text(
-                              '9',
+                              lowTemperatureFour,
                               style: TextStyle(
                                 fontSize: 22,
                                 color: Color(0xAAFFFFFF),
@@ -431,7 +486,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                           children: <Widget>[
                             // TODO: Replace with day from API (Will need to convert the given format into a day)
                             Text(
-                              'Fri',
+                              dayFive,
                               style: TextStyle(
                                 fontSize: 22,
                               ),
@@ -456,7 +511,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                           children: <Widget>[
                             //TODO: Replace with data from API
                             Text(
-                              '17',
+                              highTemperatureFive,
                               style: TextStyle(
                                 fontSize: 22,
                               ),
@@ -470,7 +525,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                           children: <Widget>[
                             //TODO: Replace with data from API
                             Text(
-                              '9',
+                              lowTemperatureFive,
                               style: TextStyle(
                                 fontSize: 22,
                                 color: Color(0xAAFFFFFF),
