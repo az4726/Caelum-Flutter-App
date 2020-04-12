@@ -158,7 +158,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        // TODO: Change to location variable
                         cityName,
                         style: TextStyle(
                           fontSize: 42,
@@ -209,7 +208,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            // TODO: Update to a variable
                             mainTemperature,
                             style: TextStyle(
                               fontSize: 136,
@@ -228,7 +226,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         ],
                       ),
                       Text(
-                        // TODO: Update to get info from API
                         weatherDescription,
                         style: TextStyle(
                           fontSize: 18,
@@ -251,9 +248,8 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: <Widget>[
-                            // TODO: Replace with day from API (Will need to convert the given format into a day)
                             Text(
-                              todayDay, //TODO: Today's date
+                              todayDay,
                               style: TextStyle(
                                 fontSize:
                                     22, //TODO: The other columns need to have a thinner font weight
@@ -277,7 +273,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: <Widget>[
-                            //TODO: Replace with data from API
                             Text(
                               todayHighTemperature,
                               style: TextStyle(
@@ -291,7 +286,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: <Widget>[
-                            //TODO: Replace with data from API
                             Text(
                               todayLowTemperature,
                               style: TextStyle(
@@ -310,7 +304,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: <Widget>[
-                            // TODO: Replace with day from API (Will need to convert the given format into a day)
                             Text(
                               dayTwo,
                               style: TextStyle(
@@ -335,7 +328,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: <Widget>[
-                            //TODO: Replace with data from API
                             Text(
                               highTemperatureTwo,
                               style: TextStyle(
@@ -349,7 +341,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: <Widget>[
-                            //TODO: Replace with data from API
                             Text(
                               lowTemperatureTwo,
                               style: TextStyle(
@@ -368,7 +359,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: <Widget>[
-                            // TODO: Replace with day from API (Will need to convert the given format into a day)
                             Text(
                               dayThree,
                               style: TextStyle(
@@ -393,7 +383,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: <Widget>[
-                            //TODO: Replace with data from API
                             Text(
                               highTemperatureThree,
                               style: TextStyle(
@@ -407,7 +396,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: <Widget>[
-                            //TODO: Replace with data from API
                             Text(
                               lowTemperatureThree,
                               style: TextStyle(
@@ -426,7 +414,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: <Widget>[
-                            // TODO: Replace with day from API (Will need to convert the given format into a day)
                             Text(
                               dayFour,
                               style: TextStyle(
@@ -451,7 +438,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: <Widget>[
-                            //TODO: Replace with data from API
                             Text(
                               highTemperatureFour,
                               style: TextStyle(
@@ -465,7 +451,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: <Widget>[
-                            //TODO: Replace with data from API
                             Text(
                               lowTemperatureFour,
                               style: TextStyle(
@@ -484,7 +469,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: <Widget>[
-                            // TODO: Replace with day from API (Will need to convert the given format into a day)
                             Text(
                               dayFive,
                               style: TextStyle(
@@ -509,7 +493,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: <Widget>[
-                            //TODO: Replace with data from API
                             Text(
                               highTemperatureFive,
                               style: TextStyle(
@@ -523,7 +506,6 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         padding: const EdgeInsets.all(4.0),
                         child: Row(
                           children: <Widget>[
-                            //TODO: Replace with data from API
                             Text(
                               lowTemperatureFive,
                               style: TextStyle(

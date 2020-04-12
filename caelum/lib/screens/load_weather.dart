@@ -11,7 +11,6 @@ class LoadWeather extends StatefulWidget {
 class _LoadWeatherState extends State<LoadWeather> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getLocationData();
   }
@@ -26,7 +25,6 @@ class _LoadWeatherState extends State<LoadWeather> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       body: Center(
         child: SpinKitRing(color: Colors.grey),
