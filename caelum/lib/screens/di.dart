@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:date_format/date_format.dart';
 import 'package:outline_material_icons/outline_material_icons.dart';
+import 'package:caelum/services/weather.dart';
 
 class DisplayWeather extends StatefulWidget {
-//  DisplayWeather(this.displayWeather);
-//
-//  final displayWeather;
+  DisplayWeather(this.displayWeather);
+
+  final displayWeather;
 
   @override
   _DisplayWeatherState createState() => _DisplayWeatherState();
@@ -26,6 +27,27 @@ class _DisplayWeatherState extends State<DisplayWeather> {
             warm, //TODO: Change this to match Container's background
       ),
     );
+    print(widget.displayWeather);
+    updateUI(widget.displayWeather);
+  }
+
+  void updateUI(dynamic weatherData) {
+    setState(() {
+      if (weatherData != null) {
+        cityName = weatherData['name'];
+//        weatherHeader = weatherData['weather'][0]['main'];
+//        var condition = weatherData['weather'][0]['id'];
+        double temp = weatherData['main']['temp'];
+        mainTemperature = temp.toInt().toString();
+//        weatherIcon = weather.getWeatherIcon(condition);
+      } else {
+        mainTemperature = 0.toString();
+        cityName = 'ERROR';
+//        weatherHeader = 'ERROR';
+//        weatherIcon = '';
+        return;
+      }
+    });
   }
 
   Color warm = Color(0xFFFDA53D);
