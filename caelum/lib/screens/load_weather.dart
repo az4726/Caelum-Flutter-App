@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:caelum/services/weather.dart';
 
 class LoadWeather extends StatefulWidget {
   @override
@@ -12,9 +14,21 @@ class _LoadWeatherState extends State<LoadWeather> {
     super.initState();
   }
 
+  void getLocationData() async {
+    WeatherModel weather = WeatherModel();
+    var weatherData = await weather.getLocationWeather();
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return LocationScreen(weatherData);
+    }));
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return null;
+    return Scaffold(
+      body: Center(
+        child: SpinKitRing(color: Colors.grey),
+      ),
+    );
   }
 }

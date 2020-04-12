@@ -22,22 +22,42 @@ class _DisplayWeatherState extends State<DisplayWeather> {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
-        systemNavigationBarColor: Color(
-            0xFFFDA53D), //TODO: Change this to match Container's background
+        systemNavigationBarColor:
+            warm, //TODO: Change this to match Container's background
       ),
     );
   }
 
+  Color warm = Color(0xFFFDA53D);
+  Color cool = Color(0xFF38AECC);
+  Color neutral = Color(0xFFA5B1A7);
+  Color rain = Color(0xFF455561);
+  Color storm = Color(0xFF282937);
+  Color semiTransparent = Color(0xAAFFFFFF);
+
   static var date = new DateTime.now();
+
+  String cityName = 'Birmingham';
   String formattedDate = formatDate(date, [DD, ', ', d, ' ', MM, ' ', yyyy]);
+  //--------------------------//
+  Icon weatherIcon = Icon(OMIcons.brightness5);
+  String mainTemperature = '12';
+  String weatherDescription = 'Rather Cloudy';
+  //--------------------------//
+  String todayDay = formatDate(date, [D]);
+  //--------------------------//
+  String dayTwo = formatDate(date, [D]);
+  Icon weatherIconTwo = Icon(OMIcons.cloud);
+  String highTemperatureTwo = '19';
+  String lowTemperatureTwo = '8';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: new BoxDecoration(
-            color: Color(
-                0xFFFDA53D)), //TODO: Dynamic background colour based on current weather
+            color:
+                warm), //TODO: Dynamic background colour based on current weather
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -51,7 +71,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                     children: <Widget>[
                       Text(
                         // TODO: Change to location variable
-                        'Birmingham',
+                        cityName,
                         style: TextStyle(
                           fontSize: 42,
                           color: Colors.white,
@@ -62,7 +82,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         formattedDate,
                         style: TextStyle(
                           fontSize: 20,
-                          color: Color(0xAAFFFFFF),
+                          color: semiTransparent,
                         ),
                       ),
                     ],
@@ -92,6 +112,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                 children: <Widget>[
                   Column(
                     children: <Widget>[
+                      weatherIcon,
                       Icon(
                         // TODO: Add functionality to have dynamic icon
                         OMIcons.brightness5,
@@ -446,8 +467,8 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                       //TODO: Add button functionality
                       onPressed: () {},
                       color: Colors.white,
-                      textColor: Color(
-                          0xFFFDA53D), //TODO: Replace with the background colour once dynamic colour is implemented
+                      textColor:
+                          warm, //TODO: Replace with the background colour once dynamic colour is implemented
                       label: Text(
                         "Search for a city",
                         style: TextStyle(fontSize: 18),
