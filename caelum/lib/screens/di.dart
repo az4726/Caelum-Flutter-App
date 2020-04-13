@@ -294,37 +294,40 @@ class _DisplayWeatherState extends State<DisplayWeather> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  ButtonTheme(
-                    minWidth: MediaQuery.of(context).size.width - 75,
-                    height: 65.0,
-                    child: RaisedButton.icon(
-                      shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(500.0),
-                          side: BorderSide(color: Colors.white)),
-                      onPressed: () async {
-                        var cityName = await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return LocateCityScreen();
-                            },
-                          ),
-                        );
-                        if (cityName != null) {
-                          var weatherData =
-                              await weather.getCityWeatherForecast(cityName);
-                          updateUI(weatherData);
-                        }
-                      },
-                      color: Colors.white,
-                      textColor: backgroundColor,
-                      label: Text(
-                        "Search for a city",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      icon: Icon(
-                        OMIcons.place,
-                        size: 28,
+                  Hero(
+                    tag: 'Search',
+                    child: ButtonTheme(
+                      minWidth: MediaQuery.of(context).size.width - 75,
+                      height: 65.0,
+                      child: RaisedButton.icon(
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(500.0),
+                            side: BorderSide(color: Colors.white)),
+                        onPressed: () async {
+                          var cityName = await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return LocateCityScreen();
+                              },
+                            ),
+                          );
+                          if (cityName != null) {
+                            var weatherData =
+                                await weather.getCityWeatherForecast(cityName);
+                            updateUI(weatherData);
+                          }
+                        },
+                        color: Colors.white,
+                        textColor: backgroundColor,
+                        label: Text(
+                          "Search for a city",
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        icon: Icon(
+                          OMIcons.place,
+                          size: 28,
+                        ),
                       ),
                     ),
                   ),

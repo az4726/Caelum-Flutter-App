@@ -74,25 +74,28 @@ class _LocateCityScreenState extends State<LocateCityScreen> {
                   ),
                 ),
               ),
-              ButtonTheme(
-                minWidth: MediaQuery.of(context).size.width - 75,
-                height: 65.0,
-                child: RaisedButton.icon(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(500.0),
-                      side: BorderSide(color: Colors.white)),
-                  onPressed: () {
-                    Navigator.pop(context, cityName);
-                  },
-                  color: Colors.white,
-                  textColor: neutral,
-                  label: Text(
-                    "Get Weather",
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  icon: Icon(
-                    OMIcons.place,
-                    size: 28,
+              Hero(
+                tag: 'Search',
+                child: ButtonTheme(
+                  minWidth: MediaQuery.of(context).size.width - 75,
+                  height: 65.0,
+                  child: RaisedButton.icon(
+                    shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(500.0),
+                        side: BorderSide(color: Colors.white)),
+                    onPressed: () {
+                      Navigator.pop(context, cityName);
+                    },
+                    color: Colors.white,
+                    textColor: neutral,
+                    label: Text(
+                      "Get Weather",
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    icon: Icon(
+                      OMIcons.place,
+                      size: 28,
+                    ),
                   ),
                 ),
               ),
