@@ -8,6 +8,82 @@ const Color rain = Color(0xFF455561);
 const Color storm = Color(0xFF282937);
 const Color semiTransparent = Color(0xAAFFFFFF);
 
+const kForecastDayTextStyle = TextStyle(
+  fontSize: 22,
+  fontWeight: FontWeight.w200,
+);
+
+class CurrentDayColumn extends StatelessWidget {
+  const CurrentDayColumn(
+      {Key key,
+      @required this.day,
+      @required this.highTemperature,
+      @required this.lowTemperature,
+      @required this.weatherIcon})
+      : super(key: key);
+
+  final String day;
+  final String highTemperature;
+  final String lowTemperature;
+  final FaIcon weatherIcon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(6.0),
+          child: Row(
+            children: <Widget>[
+              Text(
+                day,
+                style: TextStyle(
+                  fontSize: 22,
+                ),
+              ),
+            ],
+          ),
+        ), //Day
+        Padding(
+          padding: const EdgeInsets.all(6.0),
+          child: Row(
+            children: <Widget>[
+              weatherIcon,
+            ],
+          ),
+        ), //Icon
+        Padding(
+          padding: const EdgeInsets.all(6.0),
+          child: Row(
+            children: <Widget>[
+              Text(
+                highTemperature,
+                style: TextStyle(
+                  fontSize: 22,
+                ),
+              ),
+            ],
+          ),
+        ), //High temperature
+        Padding(
+          padding: const EdgeInsets.all(6.0),
+          child: Row(
+            children: <Widget>[
+              Text(
+                lowTemperature,
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w200,
+                ),
+              )
+            ],
+          ),
+        ), //Low temperature
+      ],
+    );
+  }
+}
+
 class ForecastColumn extends StatelessWidget {
   const ForecastColumn(
       {Key key,
@@ -27,21 +103,18 @@ class ForecastColumn extends StatelessWidget {
     return Column(
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.all(4.0),
+          padding: const EdgeInsets.all(6.0),
           child: Row(
             children: <Widget>[
               Text(
                 day,
-                style: TextStyle(
-                  fontSize:
-                      22, //TODO: The other columns need to have a thinner font weight
-                ),
+                style: kForecastDayTextStyle,
               ),
             ],
           ),
         ), //Day
         Padding(
-          padding: const EdgeInsets.all(4.0),
+          padding: const EdgeInsets.all(6.0),
           child: Row(
             children: <Widget>[
               weatherIcon,
@@ -49,7 +122,7 @@ class ForecastColumn extends StatelessWidget {
           ),
         ), //Icon
         Padding(
-          padding: const EdgeInsets.all(4.0),
+          padding: const EdgeInsets.all(6.0),
           child: Row(
             children: <Widget>[
               Text(
@@ -62,14 +135,14 @@ class ForecastColumn extends StatelessWidget {
           ),
         ), //High temperature
         Padding(
-          padding: const EdgeInsets.all(4.0),
+          padding: const EdgeInsets.all(6.0),
           child: Row(
             children: <Widget>[
               Text(
                 lowTemperature,
                 style: TextStyle(
                   fontSize: 22,
-                  color: Color(0xAAFFFFFF),
+                  fontWeight: FontWeight.w200,
                 ),
               )
             ],

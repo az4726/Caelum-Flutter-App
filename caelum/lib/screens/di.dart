@@ -19,6 +19,8 @@ class DisplayWeather extends StatefulWidget {
 }
 
 class _DisplayWeatherState extends State<DisplayWeather> {
+  WeatherModel weather = WeatherModel();
+
   @override
   void initState() {
     super.initState();
@@ -109,6 +111,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
         tempDouble = weatherData['list'][32]['main']['temp_min'];
         lowTemperatureFive = (tempDouble.toInt()).toString();
       } else {
+        // TODO: Add default values to prevent null errors
         mainTemperature = 0.toString();
         cityName = 'ERROR';
 //        weatherHeader = 'ERROR';
@@ -119,9 +122,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
   }
 
   static var date = new DateTime.now();
-
   Color backgroundColor;
-
   String cityName;
   String formattedDate = formatDate(date, [DD, ', ', d, ' ', MM, ' ', yyyy]);
   //--------------------------//
@@ -163,9 +164,9 @@ class _DisplayWeatherState extends State<DisplayWeather> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(32.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -195,9 +196,10 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                           size: 36,
                         ),
                         tooltip: 'Get Your Location',
-                        onPressed: () {
-                          // TODO: Update to get location info
-                          setState(() {});
+                        onPressed: () async {
+                          var weatherData =
+                              await weather.getLocationWeatherForecast();
+                          updateUI(weatherData);
                         },
                       ),
                     ],
@@ -205,6 +207,9 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                 ],
               ),
             ), //City name, Long date, 'Locate me' button
+            SizedBox(
+              height: 16,
+            ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
@@ -251,7 +256,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  ForecastColumn(
+                  CurrentDayColumn(
                       day: dayOne,
                       weatherIcon: weatherIconOne,
                       highTemperature: highTemperatureOne,
@@ -279,6 +284,9 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                 ],
               ),
             ), //5 days showing icons, highs and lows for each day
+            SizedBox(
+              height: 16,
+            ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(

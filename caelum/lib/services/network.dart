@@ -11,7 +11,7 @@ class Network {
 
     if (response.statusCode == 200) {
       String data = response.body;
-      print(data);
+//      print(data);
 
       return jsonDecode(data);
     } else {
