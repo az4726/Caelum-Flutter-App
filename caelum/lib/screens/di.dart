@@ -170,25 +170,27 @@ class _DisplayWeatherState extends State<DisplayWeather> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        cityName,
-                        style: TextStyle(
-                          fontSize: 42,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
+                  new Flexible(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          cityName,
+                          style: TextStyle(
+                            fontSize: 42,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
-                      ),
-                      Text(
-                        formattedDate,
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: semiTransparent,
+                        Text(
+                          formattedDate,
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: semiTransparent,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ), //City name, Long date
                   Column(
                     children: <Widget>[
