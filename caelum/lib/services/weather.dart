@@ -1,5 +1,7 @@
 import 'package:caelum/services/location.dart';
 import 'package:caelum/services/network.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const apiKey = '';
 const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather';
@@ -37,23 +39,44 @@ class WeatherModel {
     return weatherData;
   }
 
-  String getWeatherIcon(int condition) {
+  static String getWeatherIcon(int condition) {
     if (condition < 300) {
-      return '🌩';
+      return 'bolt';
     } else if (condition < 400) {
-      return '🌧';
+      return 'cloud-rain';
     } else if (condition < 600) {
-      return '☔️';
+      return 'cloud-showers-heavy';
     } else if (condition < 700) {
-      return '☃️';
+      return 'snowflake️';
     } else if (condition < 800) {
-      return '🌫';
+      return 'wind';
     } else if (condition == 800) {
-      return '☀️';
+      return 'sun️';
     } else if (condition <= 804) {
-      return '☁️';
+      return 'cloud️';
     } else {
-      return '🤷‍';
+      return 'exclamation';
+    }
+  }
+
+  static IconData fontAwesomeIconFromString(String name) {
+    switch (name) {
+      case 'bolt':
+        return FontAwesomeIcons.bolt;
+      case 'cloud-rain':
+        return FontAwesomeIcons.cloudRain;
+      case 'cloud-showers-heavy':
+        return FontAwesomeIcons.cloudShowersHeavy;
+      case 'snowflake️':
+        return FontAwesomeIcons.snowflake;
+      case 'wind':
+        return FontAwesomeIcons.wind;
+      case 'sun️':
+        return FontAwesomeIcons.sun;
+      case 'cloud️':
+        return FontAwesomeIcons.cloud;
+      case 'exclamation':
+        return FontAwesomeIcons.exclamation;
     }
   }
 

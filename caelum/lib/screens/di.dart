@@ -6,6 +6,8 @@ import 'package:date_format/date_format.dart';
 import 'package:outline_material_icons/outline_material_icons.dart';
 import 'package:caelum/services/weather.dart';
 import 'package:caelum/constants.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:icons_helper/icons_helper.dart';
 
 class DisplayWeather extends StatefulWidget {
   DisplayWeather(this.displayWeather);
@@ -38,22 +40,29 @@ class _DisplayWeatherState extends State<DisplayWeather> {
       if (weatherData != null) {
         cityName = weatherData['city']['name'];
         //--------------------------------//
-//        var condition = weatherData['weather'][0]['id'];  //TODO: Add functionality for correct weather icons
-//        weatherIcon = weather.getWeatherIcon(condition);
+        var condition = weatherData['list'][0]['weather'][0]['id'];
+        var weatherIconName = WeatherModel.getWeatherIcon(condition);
+        print(weatherIconName);
+        weatherIcon = FaIcon(
+            WeatherModel.fontAwesomeIconFromString(weatherIconName),
+            size: 42);
         double tempDouble = weatherData['list'][0]['main']['temp'];
         mainTemperature = (tempDouble.toInt()).toString();
         weatherDescription = weatherData['list'][0]['weather'][0]['main'];
         //----------------CURRENT DAY----------------//
-//        var condition = weatherData['weather'][0]['id'];
-//        weatherIcon = weather.getWeatherIcon(condition);
+        weatherIconOne =
+            FaIcon(WeatherModel.fontAwesomeIconFromString(weatherIconName));
         tempDouble = weatherData['list'][0]['main']['temp_max'];
         highTemperatureOne = (tempDouble.toInt()).toString();
         tempDouble = weatherData['list'][0]['main']['temp_min'];
         lowTemperatureOne = (tempDouble.toInt()).toString();
 
         //---------------DAY 2-----------------//
-//      var condition = weatherData['weather'][0]['id'];
-//      weatherIcon = weather.getWeatherIcon(condition);
+        condition = weatherData['list'][8]['weather'][0]['id'];
+        weatherIconName = WeatherModel.getWeatherIcon(condition);
+        print(weatherIconName);
+        weatherIconTwo =
+            FaIcon(WeatherModel.fontAwesomeIconFromString(weatherIconName));
         dayTwo =
             formatDate(DateTime.parse(weatherData['list'][8]['dt_txt']), [D]);
         tempDouble = weatherData['list'][8]['main']['temp_max'];
@@ -62,8 +71,11 @@ class _DisplayWeatherState extends State<DisplayWeather> {
         lowTemperatureTwo = (tempDouble.toInt()).toString();
 
         //---------------DAY 3-----------------//
-//      var condition = weatherData['weather'][0]['id'];
-//      weatherIcon = weather.getWeatherIcon(condition);
+        condition = weatherData['list'][16]['weather'][0]['id'];
+        weatherIconName = WeatherModel.getWeatherIcon(condition);
+        print(weatherIconName);
+        weatherIconThree =
+            FaIcon(WeatherModel.fontAwesomeIconFromString(weatherIconName));
         dayThree =
             formatDate(DateTime.parse(weatherData['list'][16]['dt_txt']), [D]);
         tempDouble = weatherData['list'][16]['main']['temp_max'];
@@ -72,8 +84,11 @@ class _DisplayWeatherState extends State<DisplayWeather> {
         lowTemperatureThree = (tempDouble.toInt()).toString();
 
         //---------------DAY 4-----------------//
-//      var condition = weatherData['weather'][0]['id'];
-//      weatherIcon = weather.getWeatherIcon(condition);
+        condition = weatherData['list'][24]['weather'][0]['id'];
+        weatherIconName = WeatherModel.getWeatherIcon(condition);
+        print(weatherIconName);
+        weatherIconFour =
+            FaIcon(WeatherModel.fontAwesomeIconFromString(weatherIconName));
         dayFour =
             formatDate(DateTime.parse(weatherData['list'][24]['dt_txt']), [D]);
         tempDouble = weatherData['list'][24]['main']['temp_max'];
@@ -82,8 +97,11 @@ class _DisplayWeatherState extends State<DisplayWeather> {
         lowTemperatureFour = (tempDouble.toInt()).toString();
 
         //---------------DAY 5-----------------//
-//      var condition = weatherData['weather'][0]['id'];
-//      weatherIcon = weather.getWeatherIcon(condition);
+        condition = weatherData['list'][33]['weather'][0]['id'];
+        weatherIconName = WeatherModel.getWeatherIcon(condition);
+        print(weatherIconName);
+        weatherIconFive =
+            FaIcon(WeatherModel.fontAwesomeIconFromString(weatherIconName));
         dayFive =
             formatDate(DateTime.parse(weatherData['list'][32]['dt_txt']), [D]);
         tempDouble = weatherData['list'][32]['main']['temp_max'];
@@ -105,31 +123,32 @@ class _DisplayWeatherState extends State<DisplayWeather> {
   String cityName;
   String formattedDate = formatDate(date, [DD, ', ', d, ' ', MM, ' ', yyyy]);
   //--------------------------//
-  Icon weatherIcon = Icon(OMIcons.brightness5);
+  FaIcon weatherIcon;
   String mainTemperature;
   String weatherDescription;
   //--------------------------//
   String dayOne = formatDate(date, [D]);
+  FaIcon weatherIconOne;
   String highTemperatureOne;
   String lowTemperatureOne;
   //--------------------------//
   String dayTwo;
-  Icon weatherIconTwo = Icon(OMIcons.cloud);
+  FaIcon weatherIconTwo;
   String highTemperatureTwo;
   String lowTemperatureTwo;
   //--------------------------//
   String dayThree;
-  Icon weatherIconThree = Icon(OMIcons.cloud);
+  FaIcon weatherIconThree;
   String highTemperatureThree;
   String lowTemperatureThree;
   //--------------------------//
   String dayFour;
-  Icon weatherIconFour = Icon(OMIcons.cloud);
+  FaIcon weatherIconFour;
   String highTemperatureFour;
   String lowTemperatureFour;
   //--------------------------//
   String dayFive;
-  Icon weatherIconFive = Icon(OMIcons.cloud);
+  FaIcon weatherIconFive;
   String highTemperatureFive;
   String lowTemperatureFive;
 
@@ -193,11 +212,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                 children: <Widget>[
                   Column(
                     children: <Widget>[
-                      Icon(
-                        // TODO: Add functionality to have dynamic icon
-                        OMIcons.brightness5,
-                        size: 42,
-                      ),
+                      weatherIcon,
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -238,22 +253,27 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                 children: <Widget>[
                   ForecastColumn(
                       day: dayOne,
+                      weatherIcon: weatherIconOne,
                       highTemperature: highTemperatureOne,
                       lowTemperature: lowTemperatureOne),
                   ForecastColumn(
                       day: dayTwo,
+                      weatherIcon: weatherIconTwo,
                       highTemperature: highTemperatureTwo,
                       lowTemperature: lowTemperatureTwo),
                   ForecastColumn(
                       day: dayThree,
+                      weatherIcon: weatherIconThree,
                       highTemperature: highTemperatureThree,
                       lowTemperature: lowTemperatureThree),
                   ForecastColumn(
                       day: dayFour,
+                      weatherIcon: weatherIconFour,
                       highTemperature: highTemperatureFour,
                       lowTemperature: lowTemperatureFour),
                   ForecastColumn(
                       day: dayFive,
+                      weatherIcon: weatherIconFive,
                       highTemperature: highTemperatureFive,
                       lowTemperature: lowTemperatureFive),
                 ],
