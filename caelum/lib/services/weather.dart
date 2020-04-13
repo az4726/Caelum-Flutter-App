@@ -2,6 +2,7 @@ import 'package:caelum/services/location.dart';
 import 'package:caelum/services/network.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:caelum/constants.dart';
 
 const apiKey = '';
 const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather';
@@ -80,15 +81,21 @@ class WeatherModel {
     }
   }
 
-  String getBackgroundColor(int temp) {
-    if (temp > 25) {
-      return 'It\'s 🍦 time';
-    } else if (temp > 20) {
-      return 'Time for shorts and 👕';
-    } else if (temp < 10) {
-      return 'You\'ll need 🧣 and 🧤';
+  static Color getBackgroundColor(int condition) {
+    if (condition < 300) {
+      return storm;
+    } else if (condition < 400) {
+      return rain;
+    } else if (condition < 600) {
+      return storm;
+    } else if (condition < 800) {
+      return neutral;
+    } else if (condition == 800) {
+      return warm;
+    } else if (condition <= 804) {
+      return cool;
     } else {
-      return 'Bring a 🧥 just in case';
+      return neutral;
     }
   }
 }

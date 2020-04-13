@@ -44,7 +44,6 @@ class ForecastColumn extends StatelessWidget {
           padding: const EdgeInsets.all(4.0),
           child: Row(
             children: <Widget>[
-              //TODO: Replace with the matching icon for the forecasted weather
               weatherIcon,
             ],
           ),

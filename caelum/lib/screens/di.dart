@@ -27,8 +27,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
-        systemNavigationBarColor:
-            warm, //TODO: Change this to match Container's background
+        systemNavigationBarColor: backgroundColor,
       ),
     );
     print(widget.displayWeather);
@@ -46,6 +45,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
         weatherIcon = FaIcon(
             WeatherModel.fontAwesomeIconFromString(weatherIconName),
             size: 42);
+        backgroundColor = WeatherModel.getBackgroundColor(condition);
         double tempDouble = weatherData['list'][0]['main']['temp'];
         mainTemperature = (tempDouble.toInt()).toString();
         weatherDescription = weatherData['list'][0]['weather'][0]['main'];
@@ -120,6 +120,8 @@ class _DisplayWeatherState extends State<DisplayWeather> {
 
   static var date = new DateTime.now();
 
+  Color backgroundColor;
+
   String cityName;
   String formattedDate = formatDate(date, [DD, ', ', d, ' ', MM, ' ', yyyy]);
   //--------------------------//
@@ -156,9 +158,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: new BoxDecoration(
-            color:
-                warm), //TODO: Dynamic background colour based on current weather
+        decoration: new BoxDecoration(color: backgroundColor),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -294,8 +294,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                       //TODO: Add button functionality
                       onPressed: () {},
                       color: Colors.white,
-                      textColor:
-                          warm, //TODO: Replace with the background colour once dynamic colour is implemented
+                      textColor: backgroundColor,
                       label: Text(
                         "Search for a city",
                         style: TextStyle(fontSize: 18),
