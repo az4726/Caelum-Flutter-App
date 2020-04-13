@@ -9,6 +9,8 @@ import 'package:caelum/constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:icons_helper/icons_helper.dart';
 
+import 'locate_weather.dart';
+
 class DisplayWeather extends StatefulWidget {
   DisplayWeather(this.displayWeather);
 
@@ -299,8 +301,21 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                       shape: new RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(500.0),
                           side: BorderSide(color: Colors.white)),
-                      //TODO: Add button functionality
-                      onPressed: () {},
+                      onPressed: () async {
+                        var cityName = await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return LocateCityScreen();
+                            },
+                          ),
+                        );
+                        if (cityName != null) {
+                          var weatherData =
+                              await weather.getCityWeatherForecast(cityName);
+                          updateUI(weatherData);
+                        }
+                      },
                       color: Colors.white,
                       textColor: backgroundColor,
                       label: Text(
@@ -308,7 +323,7 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         style: TextStyle(fontSize: 18),
                       ),
                       icon: Icon(
-                        OMIcons.locationOn,
+                        OMIcons.place,
                         size: 28,
                       ),
                     ),
