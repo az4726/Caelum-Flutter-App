@@ -113,11 +113,42 @@ class _DisplayWeatherState extends State<DisplayWeather> {
         tempDouble = weatherData['list'][32]['main']['temp_min'];
         lowTemperatureFive = (tempDouble.toInt()).toString();
       } else {
-        // TODO: Add default values to prevent null errors
-        mainTemperature = 0.toString();
-        cityName = 'ERROR';
-//        weatherHeader = 'ERROR';
-//        weatherIcon = '';
+        _showDialog(context);
+        cityName = 'Unknown';
+        //--------------------------------//
+        weatherIcon = FaIcon(FontAwesomeIcons.exclamation, size: 42);
+        backgroundColor = storm;
+        mainTemperature = 'X';
+        weatherDescription = 'Error finding weather in that location';
+        //----------------CURRENT DAY----------------//
+        weatherIconOne = FaIcon(FontAwesomeIcons.exclamation);
+        highTemperatureOne = 'N/A';
+        lowTemperatureOne = 'N/A';
+
+        //---------------DAY 2-----------------//
+        weatherIconTwo = FaIcon(FontAwesomeIcons.exclamation);
+        dayTwo = 'N/A';
+        highTemperatureTwo = 'N/A';
+        lowTemperatureTwo = 'N/A';
+
+        //---------------DAY 3-----------------//
+        weatherIconThree = FaIcon(FontAwesomeIcons.exclamation);
+        dayThree = 'N/A';
+        highTemperatureThree = 'N/A';
+        lowTemperatureThree = 'N/A';
+
+        //---------------DAY 4-----------------//
+        weatherIconFour = FaIcon(FontAwesomeIcons.exclamation);
+        dayFour = 'N/A';
+        highTemperatureFour = 'N/A';
+        lowTemperatureFour = 'N/A';
+
+        //---------------DAY 5-----------------//
+        weatherIconFive = FaIcon(FontAwesomeIcons.exclamation);
+        dayFive = 'N/A';
+        highTemperatureFive = 'N/A';
+        lowTemperatureFive = 'N/A';
+
         return;
       }
     });
@@ -156,6 +187,26 @@ class _DisplayWeatherState extends State<DisplayWeather> {
   FaIcon weatherIconFive;
   String highTemperatureFive;
   String lowTemperatureFive;
+
+  void _showDialog(context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: new Text("Oh no!"),
+          content: new Text("Unable to retrieve weather information"),
+          actions: <Widget>[
+            new FlatButton(
+              child: new Text("Close"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
