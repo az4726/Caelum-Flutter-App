@@ -1,15 +1,12 @@
-import 'package:caelum/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:date_format/date_format.dart';
-import 'package:outline_material_icons/outline_material_icons.dart';
+import 'locate_weather.dart';
 import 'package:caelum/services/weather.dart';
 import 'package:caelum/constants.dart';
+import 'package:date_format/date_format.dart';
+import 'package:outline_material_icons/outline_material_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:icons_helper/icons_helper.dart';
-
-import 'locate_weather.dart';
 
 class DisplayWeather extends StatefulWidget {
   DisplayWeather(this.displayWeather);
@@ -227,18 +224,11 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                       children: <Widget>[
                         Text(
                           cityName,
-                          style: TextStyle(
-                            fontSize: 42,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w700,
-                          ),
+                          style: kCityNameTextStyle,
                         ),
                         Text(
                           formattedDate,
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: semiTransparent,
-                          ),
+                          style: kFormattedDateTextStyle,
                         ),
                       ],
                     ),
@@ -278,28 +268,17 @@ class _DisplayWeatherState extends State<DisplayWeather> {
                         children: <Widget>[
                           Text(
                             mainTemperature,
-                            style: TextStyle(
-                              fontSize: 136,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
+                            style: kTemperatureTextStyle,
                           ),
                           Text(
                             '°',
-                            style: TextStyle(
-                              fontSize: 108,
-                              fontWeight: FontWeight.w200,
-                              color: Colors.white,
-                            ),
+                            style: kDegreeTextStyle,
                           ),
                         ],
                       ),
                       Text(
                         weatherDescription,
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Color(0xAAFFFFFF),
-                        ),
+                        style: kWeatherDescriptionTextStyle,
                       ),
                     ],
                   )

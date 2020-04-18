@@ -13,6 +13,43 @@ const kForecastDayTextStyle = TextStyle(
   fontWeight: FontWeight.w200,
 );
 
+const kCityNameTextStyle = TextStyle(
+  fontSize: 42,
+  color: Colors.white,
+  fontWeight: FontWeight.w700,
+);
+
+const kFormattedDateTextStyle = TextStyle(
+  fontSize: 20,
+  color: semiTransparent,
+);
+
+const kTemperatureTextStyle = TextStyle(
+  fontSize: 136,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);
+
+const kDegreeTextStyle = TextStyle(
+  fontSize: 108,
+  fontWeight: FontWeight.w200,
+  color: Colors.white,
+);
+
+const kWeatherDescriptionTextStyle = TextStyle(
+  fontSize: 18,
+  color: Color(0xAAFFFFFF),
+);
+
+const kTemperatureInfoTextStyle = TextStyle(
+  fontSize: 22,
+);
+
+const kThinTemperatureInfoTextStyle = TextStyle(
+  fontSize: 22,
+  fontWeight: FontWeight.w200,
+);
+
 class CurrentDayColumn extends StatelessWidget {
   const CurrentDayColumn(
       {Key key,
@@ -58,9 +95,7 @@ class CurrentDayColumn extends StatelessWidget {
             children: <Widget>[
               Text(
                 highTemperature,
-                style: TextStyle(
-                  fontSize: 22,
-                ),
+                style: kTemperatureInfoTextStyle,
               ),
             ],
           ),
@@ -71,10 +106,7 @@ class CurrentDayColumn extends StatelessWidget {
             children: <Widget>[
               Text(
                 lowTemperature,
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w200,
-                ),
+                style: kThinTemperatureInfoTextStyle,
               )
             ],
           ),
@@ -127,9 +159,7 @@ class ForecastColumn extends StatelessWidget {
             children: <Widget>[
               Text(
                 highTemperature,
-                style: TextStyle(
-                  fontSize: 22,
-                ),
+                style: kTemperatureInfoTextStyle,
               ),
             ],
           ),
@@ -140,10 +170,7 @@ class ForecastColumn extends StatelessWidget {
             children: <Widget>[
               Text(
                 lowTemperature,
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w200,
-                ),
+                style: kThinTemperatureInfoTextStyle,
               )
             ],
           ),
