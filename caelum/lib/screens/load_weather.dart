@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:caelum/services/weather.dart';
-import 'package:caelum/screens/di.dart';
+import 'package:caelum/screens/main_display.dart';
 
 class LoadWeather extends StatefulWidget {
   @override
