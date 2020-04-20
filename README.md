@@ -2,7 +2,7 @@
 
 > caelum - sky, heaven, air, weather, climate
 
-(https://img.shields.io/github/license/az4726/az4726/Caelum-Flutter-App)	[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)	[![Issues](https://img.shields.io/github/issues-raw/az4726/PlayMusic.svg?maxAge=25000)](https://github.com/az4726/Caelum-Flutter-App/issues)	[![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
+[![GPLv3 License](https://img.shields.io/github/license/az4726/Caelum-Flutter-App)](https://opensource.org/licenses/)	[![GitHub issues](https://img.shields.io/github/issues/az4726/Caelum-Flutter-App)](https://github.com/az4726/Caelum-Flutter-App/issues)	[![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
 
 ## General info
 Caelum was programmed in Dart using the Flutter SDK. It uses the OpenWeatherMap API to collect weather information to then display to the user. The design was inspired by [Ruben Vaalt's concept on Dribbble](https://dribbble.com/shots/5798457--Weather-App).
@@ -67,7 +67,7 @@ To create and run a release version of the app, type the following lines in the 
 flutter clean
 flutter run --release
 ```
-For a wider deployment and release, wou will need to follow the instructions providied in the [Flutter documentation](https://flutter.dev/docs/deployment/android).
+For a wider deployment and release, you will need to follow the instructions providied in the [Flutter documentation](https://flutter.dev/docs/deployment/android).
 
 ## To-do
 
