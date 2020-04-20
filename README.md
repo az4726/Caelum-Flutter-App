@@ -2,7 +2,7 @@
 
 > caelum - sky, heaven, air, weather, climate
 
-[![GPLv3 License](https://img.shields.io/github/license/az4726/Caelum-Flutter-App)](https://opensource.org/licenses/)	[![GitHub issues](https://img.shields.io/github/issues/az4726/Caelum-Flutter-App)](https://github.com/az4726/Caelum-Flutter-App/issues)	[![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
+[![GitHub license](https://img.shields.io/github/license/az4726/Caelum-Flutter-App)](https://github.com/az4726/Caelum-Flutter-App/blob/master/LICENSE)	[![GitHub issues](https://img.shields.io/github/issues/az4726/Caelum-Flutter-App)](https://github.com/az4726/Caelum-Flutter-App/issues)	[![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
 
 ## General info
 Caelum was programmed in Dart using the Flutter SDK. It uses the OpenWeatherMap API to collect weather information to then display to the user. The design was inspired by [Ruben Vaalt's concept on Dribbble](https://dribbble.com/shots/5798457--Weather-App).
